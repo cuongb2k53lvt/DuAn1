@@ -40,8 +40,8 @@ public class HoaDonCtAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView= LayoutInflater.from(context).inflate(R.layout.listview_hdct_layout,parent,false);
         TextView tvMaVatNuoi=convertView.findViewById(R.id.tvMaVatNuoiHdct);
-        TextView tvGiaTien=convertView.findViewById(R.id.tvMaVatNuoiHdct);
-        tvMaVatNuoi.setText(arrHdct.get(position).getMaVatNuoi());
+        TextView tvGiaTien=convertView.findViewById(R.id.tvGiaTienHdct);
+        tvMaVatNuoi.setText("Mã vật nuôi: "+arrHdct.get(position).getMaVatNuoi());
         Sqlite sqlite=new Sqlite(context);
         HoaDonSql hoaDonSql=new HoaDonSql(sqlite);
         tvGiaTien.setText("Giá Tiền: "+hoaDonSql.LayGiaTienTheoMaVatNuoi(arrHdct.get(position).getMaVatNuoi()));

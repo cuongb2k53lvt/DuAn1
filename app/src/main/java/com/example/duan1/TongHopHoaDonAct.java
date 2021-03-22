@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.duan1.Adapter.HoaDonAdapter;
 import com.example.duan1.Adapter.HoaDonCtAdapter;
@@ -53,8 +54,9 @@ public class TongHopHoaDonAct extends AppCompatActivity {
                 tvTongTien.setText("Tổng tiền: "+hoaDonSql.LayTongTien(finalArrHoaDon.get(position).getMaHoaDon()));
                 tvTaiKhoan.setText(finalArrHoaDon.get(position).getTenTk());
                 HoaDonCtSql hoaDonCtSql=new HoaDonCtSql(sqlite);
-                HoaDonCtAdapter hoaDonCtAdapter=new HoaDonCtAdapter(TongHopHoaDonAct.this,hoaDonCtSql.LayAllHdctTheoMaHd(finalArrHoaDon.get(position).getMaHoaDon()));
-                lvHdct.setAdapter(hoaDonAdapter);
+                Toast.makeText(TongHopHoaDonAct.this, ""+hoaDonCtSql.LayAllHdct().size(), Toast.LENGTH_SHORT).show();
+                HoaDonCtAdapter hoaDonCtAdapter=new HoaDonCtAdapter(TongHopHoaDonAct.this,hoaDonCtSql.LayAllHdct());
+                lvHdct.setAdapter(hoaDonCtAdapter);
 //                builder.setNegativeButton("Đóng", new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
